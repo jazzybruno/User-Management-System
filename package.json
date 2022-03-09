@@ -1,0 +1,15 @@
+{
+  "name": "crud-app-in-php",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build" : "tailwind -i assets/input.css -o assets/output.css -w"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.0.23"
+  }
+}
