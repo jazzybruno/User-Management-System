@@ -80,9 +80,11 @@
             <td><?=$row["gender"]?></td>
             <td><?=$row["nationality"]?></td>
             <td>
+            <!-- <div class=" h-12 w-16 shadow-md" > <a href=""><i class="fa-solid fa-pencil  ml-5 mt-2  hover:text-green-500 text-2xl"></i></a> </div> -->
                 <div class="flex gap-3">
-                    <div class=" h-12 w-16 shadow-md" > <a href=""><i class="fa-solid fa-pencil  ml-5 mt-2  hover:text-green-500 text-2xl"></i></a> </div>
-                    <div class=" h-12 w-16 shadow-md"> <a href=""><i class="fa-solid fa-xmark ml-6  mt-2  hover:text-green-500 text-2xl "></i></a> </div>
+                
+                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=useredit.php?userid=".$row['user_id']  ."> Update</a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['user_id']  ."> Delete </a> "?> </h4></div>
                 </div>
             </td>
         </tr>

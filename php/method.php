@@ -27,7 +27,7 @@ $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
    $addQuery=mysqli_query(
     $connect,"INSERT INTO mis_users(firstName, lastName,gender,telephone, nationality,email, username,password) VALUES ('$firstName','$lastName', '$gender','$telephone','$nationality','$email', '$username','$password')");
      if($connect){
-    //    echo "<h3>Registered successfully</h3>";
+    
        header("Location: index.php");
        exit();
     }else{

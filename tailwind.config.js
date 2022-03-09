@@ -1,5 +1,6 @@
 module.exports = {
-  content: ["php/index.php",
+  content: ["php/**/*.php",
+             
             "./form.html" 
 ],
   theme: {
