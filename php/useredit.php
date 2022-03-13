@@ -82,7 +82,12 @@
                             <div class="flex flex-col "><label >Last Name</label><input    required  name="lastName" class="w-96 h-10 mt-2  p-4 shadow-lg  border-gray-800 " type="text" placeholder="Enter Last  Name" value="<?=$row['lastName']?>"></div>
                         </div>
                          <div class="flex flex-col mt-5"><label >Email</label><input value=<?php echo $row["email"]; ?> required name="email" class="w-full h-10  mt-2  p-4 shadow-lg  border-gray-800 " type="text" placeholder="Enter Last  Name"></div>
-                        <div class="flex flex-col mt-5"><label >Telephone</label><input  value="<?php echo $row["telephone"]; ?> " required name="telephone" class="w-full h-10  p-4 mt-2  shadow-lg  border-gray-800 " type="text" placeholder="Enter telephone number"></div>
+
+                        <div class="flex gap-60 mt-5 ">
+                            <div class="flex flex-col "><label >Telephone</label><input required name="telephone"  value="<?php echo $row["telephone"]; ?>" class="w-80 h-10 mt-2  p-4  shadow-lg  border-gray-800 " type="text" placeholder=" Enter phone number"></div>
+                            <div class="flex flex-col "><label >Username</label><input required  value="<?php echo $row["username"]; ?>" name="username" class="w-96 h-10 mt-2  p-4 shadow-lg  border-gray-800 " type="text" placeholder="Enter username"></div>
+                        </div>
+
                          <div class="flex gap-60"> 
                         <div class="flex flex-col">
                        <div class="mb-3 mt-5  "> <label > Nationality</label></div>

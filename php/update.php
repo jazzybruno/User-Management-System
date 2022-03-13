@@ -3,6 +3,7 @@ $id = $_POST['user'];
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $telephone = $_POST['telephone'];
+$username = $_POST['username'];
 $email = $_POST['email'];
 $gender = $_POST['gender'];
 $nationality = $_POST['nationality'];
@@ -23,7 +24,7 @@ $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
    }
 
    $addQuery=mysqli_query(
-    $connect,"UPDATE mis_users SET firstName = '$firstName', lastName = '$lastName',gender='$gender', nationality='$nationality', email='$email', username='$username' WHERE user_id = '$id'");
+    $connect,"UPDATE mis_users SET firstName = '$firstName', lastName = '$lastName'  , telephone= '$telephone' , username='$username' ,gender='$gender', nationality='$nationality', email='$email', username='$username' WHERE user_id = '$id'");
    
 if($connect){
     header("Location: index.php");

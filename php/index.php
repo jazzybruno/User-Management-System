@@ -61,11 +61,13 @@
     <table class="mt-10 ">
         <tr class="bg-gray-800  ">
             <th class="p-4 text-white">ID</th>
+            <th class="p-4 text-white">Username</th>
             <th class="p-4 text-white">First Name</th>
             <th class="p-4 text-white">Last Name</th>
             <th class="p-4 text-white">Telephone</th>
             <th class="p-4 text-white">Email</th>
             <th class="p-4 text-white">Gender</th>
+            
             <th class="p-4 text-white">Nationality </th>
             <th class="p-4 text-white">Action</th>
         </tr>
@@ -73,11 +75,13 @@
         while ($row = mysqli_fetch_assoc($query)){?>
         <tr>
             <td><?=$row["user_id"]?></td>
+            <td> <?=$row['username']?> </td>    
             <td><?=$row["firstName"]?></td>
             <td><?=$row["lastName"]?></td>
             <td><?=$row["telephone"]?></td>
             <td><?=$row["email"]?></td>
             <td><?=$row["gender"]?></td>
+            
             <td><?=$row["nationality"]?></td>
             <td>
             <!-- <div class=" h-12 w-16 shadow-md" > <a href=""><i class="fa-solid fa-pencil  ml-5 mt-2  hover:text-green-500 text-2xl"></i></a> </div> -->
