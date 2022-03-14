@@ -3,17 +3,6 @@
 <head>
     <style>
 
-        .text{
-            border : 2px solid black;
-            height : 60px;
-            margin-left : 1200px;
-            margin-top : 100px;
-            font-size: 15px;
-            font-weight: 800;
-            padding-left: 10px;
-            
-        }
-
         *{
             font-family: 'Poppins', sans-serif;
         }
@@ -47,18 +36,11 @@
     
 </div> 
 
-<div class="">
-<form action="./find.php"  method="POST">
-      <!-- <label class="font-bold text-right" >Search by username</label><br><br>   -->
-      <input type="text" class="text text-xl  rounded-md "  name="search" >
-      <input type="submit" value="Search" class="bg-green-300  ml-3 p-4 rounded-md " / >
-</form>
-    </div>
 
 
-   <div class=" mt-16 ml-96">
+   <div class=" mt-28 ml-96">
        <div class="flex ">
-       <a href="../form.html" class=" p-4 rounded-md bg-green-300 shadow-md mt-7  decoration-none hover:bg-white ">New user   <i class="fa-solid fa-user ml-1"></i></a>
+       <a href="./index.php" class=" p-4 rounded-md bg-green-300 shadow-md mt-7  decoration-none hover:bg-white ">All Users   <i class="fa-solid fa-user ml-1"></i></a>
        </div>
      
        <?php
@@ -67,6 +49,9 @@
        $DB_name = "users";
        $DB_user_name = "bruno";
        $DB_user_password = "Bruno@1980";
+
+       $search = $_POST['search'];
+
     $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
        if(!$connect){
            echo mysqli_connect_error();
@@ -75,8 +60,11 @@
            echo "" ;
        }
 
-       $query = mysqli_query($connect, "SELECT * FROM mis_users") or die("Error".mysqli_error());?>
-
+       $query = mysqli_query($connect, "SELECT user_id,firstName,lastName,telephone,gender,nationality,username,email FROM mis_users WHERE username  =   '$search'") or die("Error".mysqli_error());
+       
+    
+       ?>
+       
        
     <table class="mt-10 ">
         <tr class="bg-gray-800  ">
@@ -104,10 +92,10 @@
             
             <td><?=$row["nationality"]?></td>
             <td>
-            
+            <!-- <div class=" h-12 w-16 shadow-md" > <a href=""><i class="fa-solid fa-pencil  ml-5 mt-2  hover:text-green-500 text-2xl"></i></a> </div> -->
                 <div class="flex gap-3">
                 
-                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=useredit.php?userid=".$row['user_id']  ."> Update</a> "?> </h4></div>
+                     
                     <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['user_id']  ."> Delete </a> "?> </h4></div>
                 </div>
             </td>
