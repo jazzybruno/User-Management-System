@@ -13,7 +13,7 @@ $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
    }
 
    $addQuery=mysqli_query(
-    $connect,"DELETE FROM  mis_users WHERE  user_id = '$id'");
+    $connect,"DELETE FROM  mis_users WHERE  id = '$id'");
    
 if($connect){
     header("Location: index.php");

@@ -1,3 +1,7 @@
+<?php 
+session_start() ;
+require "auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +18,38 @@
             border-bottom: 2px !important;
             border-color: black !important;
         }
+
+        .main-header-contanier{
+     width: 100%;
+     padding: 10px;
+     display: flex;
+     justify-content: space-between;
+    }
+
+    .main-header-text{
+
+    }
+
+    .main-header-user-info{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .main-header-user-info > div > img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit : cover;
+    }
+
+    .out{
+        color: aliceblue;
+        font-weight: 600;
+        cursor: pointer;
+    }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,10 +65,25 @@
 </head>
 <body>
     
-    <div class="bg-green-300">
-        <h1 class=" font-extrabold text-2xl text-center p-3">User Management System</h1>
-        
-    </div>
+<div class="main-header-contanier bg-green-300">
+             <div class="main-header-text  font-extrabold text-2xl text-center p-3">Product Managemnt System</div>
+             <div class="main-header-user-info">
+                <div> 
+                    <img src="../user.png" alt="">
+                </div>
+                <div>
+                    <div class="main-header-user-name">
+                        <?php 
+                            echo $_SESSION['firstName']." ".$_SESSION['lastName'];
+                        ?>
+                    </div>
+                    <div>
+                        <a href="./logout.php"><p class="out">Logout</p></a>
+
+                    </div>
+                </div>
+             </div>
+   </div>
     
     <div class=" mt-24   ml-48">
         <div class="flex ">
@@ -61,7 +112,7 @@
                                    {
                                     $id = $_GET['userid'];
                                     
-                                    $query = mysqli_query($connect , "SELECT * From mis_users where user_id= '$id'  ");
+                                    $query = mysqli_query($connect , "SELECT * From mis_users where id= '$id'  ");
                                     if(!$query) {
                                        echo mysqli_query_error();
                                     }else{
@@ -77,7 +128,7 @@
 
                        <div class="mx-96 mt-9">
                         <div class="flex gap-60 align-middle">
-                            <input type="hidden"  value="<?php echo $row["user_id"];?>" name="user">
+                            <input type="hidden"  value="<?php echo $row["id"];?>" name="user">
                             <div class="flex flex-col"><label >First Name</label><input value="<?php echo $row["firstName"];?>" required name="firstName" class="w-80 h-10 mt-2  p-4  shadow-lg  border-gray-800 " type="text" placeholder="Enter First Name"></div>
                             <div class="flex flex-col "><label >Last Name</label><input    required  name="lastName" class="w-96 h-10 mt-2  p-4 shadow-lg  border-gray-800 " type="text" placeholder="Enter Last  Name" value="<?=$row['lastName']?>"></div>
                         </div>

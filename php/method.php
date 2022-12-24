@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $firstName = $_POST['firstName'];
 $lastName = $_POST['lastName'];
 $telephone = $_POST['telephone'];
@@ -25,17 +27,23 @@ $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
    if ($connect) {
        echo "Database connected" ;
    }
-   $addQuery=mysqli_query(
-    $connect,"INSERT INTO mis_users(firstName, lastName,gender,telephone, nationality,email, username,password) VALUES ('$firstName','$lastName', '$gender','$telephone','$nationality','$email', '$username','$password')");
-     if($connect){
-    
-       header("Location: index.php");
-       exit();
+
+   $queryExecuted = mysqli_query($connect , "SELECT * FROM mis_users WHERE email = '$email'" ); 
+    $data = mysqli_fetch_assoc($queryExecuted);
+    if($data['email'] == $email){
+        $_SESSION['message'] = "Email already exists";
+        header("Location: error.php");
     }else{
-       echo "Error Occurred: ".mysqli_error($connect);
+      $addQuery=mysqli_query(
+        $connect,"INSERT INTO mis_users(firstName, lastName,gender,telephone, nationality,email, username,password) VALUES ('$firstName','$lastName', '$gender','$telephone','$nationality','$email', '$username','$password')");
+        if($addQuery){
+            header("Location: login.php");
+    }else{
+        $_SESSION['message'] = "Please try again";
+        header("Location: error.php");
     }
     
-   
+}
   }
 ?>
 

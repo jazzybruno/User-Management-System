@@ -1,3 +1,7 @@
+<?php 
+session_start() ;
+require "auth.php";
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,7 +31,40 @@
         th{
             padding-left: 20px;
         }
+        
+    .main-header-contanier{
+     width: 100%;
+     padding: 10px;
+     display: flex;
+     justify-content: space-between;
+    }
+
+    .main-header-text{
+
+    }
+
+    .main-header-user-info{
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+        gap: 10px;
+    }
+
+    .main-header-user-info > div > img{
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        object-fit : cover;
+    }
+
+    .out{
+        color: aliceblue;
+        font-weight: 600;
+        cursor: pointer;
+    }
     </style>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">   
@@ -42,16 +79,32 @@
 <body>
 
     
-<div class="bg-green-300">
-    <h1 class=" font-extrabold text-2xl text-center p-3">User Management System</h1>
-    
-</div> 
+   <div class="main-header-contanier bg-green-300">
+             <div class="main-header-text  font-extrabold text-2xl text-center p-3">Product Managemnt System</div>
+             <div class="main-header-user-info">
+                <div> 
+                    <img src="../user.png" alt="">
+                </div>
+                <div>
+                    <div class="main-header-user-name">
+                        <?php 
+                            echo $_SESSION['firstName']." ".$_SESSION['lastName'];
+                        ?>
+                        
+                    </div>
+                    <div>
+                        <a href="./logout.php"><p class="out">Logout</p></a>
+
+                    </div>
+                </div>
+             </div>
+   </div>
 
 <div class="">
 <form action="./find.php"  method="POST">
       <!-- <label class="font-bold text-right" >Search by username</label><br><br>   -->
       <input type="text" class="text text-xl  rounded-md "  name="search" >
-      <input type="submit" value="Search" class="bg-green-300  ml-3 p-4 rounded-md " / >
+      <input type="submit" value="Search" class="bg-green-300  ml-3 p-4 rounded-md " >
 </form>
     </div>
 
@@ -94,7 +147,7 @@
         <?php
         while ($row = mysqli_fetch_assoc($query)){?>
         <tr>
-            <td><?=$row["user_id"]?></td>
+            <td><?=$row["id"]?></td>
             <td> <?=$row['username']?> </td>    
             <td><?=$row["firstName"]?></td>
             <td><?=$row["lastName"]?></td>
@@ -107,8 +160,8 @@
             
                 <div class="flex gap-3">
                 
-                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=useredit.php?userid=".$row['user_id']  ."> Update</a> "?> </h4></div>
-                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['user_id']  ."> Delete </a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=useredit.php?userid=".$row['id']  ."> Update</a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['id']  ."> Delete </a> "?> </h4></div>
                 </div>
             </td>
         </tr>
