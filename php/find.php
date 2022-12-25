@@ -60,7 +60,7 @@
            echo "" ;
        }
 
-       $query = mysqli_query($connect, "SELECT user_id,firstName,lastName,telephone,gender,nationality,username,email FROM mis_users WHERE username  =   '$search'") or die("Error".mysqli_error());
+       $query = mysqli_query($connect, "SELECT id,firstName,lastName,telephone,gender,nationality,username,email FROM mis_users WHERE username  = '$search'") or die("Error".mysqli_error());
        
     
        ?>
@@ -82,7 +82,7 @@
         <?php
         while ($row = mysqli_fetch_assoc($query)){?>
         <tr>
-            <td><?=$row["user_id"]?></td>
+            <td><?=$row["id"]?></td>
             <td> <?=$row['username']?> </td>    
             <td><?=$row["firstName"]?></td>
             <td><?=$row["lastName"]?></td>
@@ -96,7 +96,7 @@
                 <div class="flex gap-3">
                 
                      
-                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['user_id']  ."> Delete </a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row["id"]  ."> Delete </a> "?> </h4></div>
                 </div>
             </td>
         </tr>
