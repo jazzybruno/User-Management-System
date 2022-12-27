@@ -111,7 +111,7 @@ require "../auth.php";
 
    <div class=" mt-16 ml-96">
        <div class="flex ">
-       <a href="./add.html" class=" p-4 rounded-md bg-green-300 shadow-md mt-7  decoration-none hover:bg-white ">New Product</a>
+       <a href="./add.php" class=" p-4 rounded-md bg-green-300 shadow-md mt-7  decoration-none hover:bg-white ">New Product</a>
        </div>
      
        <?php
@@ -140,7 +140,6 @@ require "../auth.php";
             <th class="p-4 text-white">Unit Price</th>
             <th class="p-4 text-white">Total Price</th>
             
-            <th class="p-4 text-white">Nationality </th>
             <th class="p-4 text-white">Action</th>
         </tr>
         <?php
