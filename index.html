@@ -14,6 +14,12 @@
             border-bottom: 2px !important;
             border-color: black !important;
         }
+
+        .sigup{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,6 +34,8 @@
 
 </head>
 <body>
+
+    
     
     <div class="bg-green-300">
         <h1 class=" font-extrabold text-2xl text-center p-3">User Management System</h1>
@@ -37,6 +45,11 @@
             <div class="user mt-5">
                       <h1 class="text-2xl text-center"> User Login </h1>
                       <h2 class=" font-thin text-gray-600  text-center ">Use the form bellow to login </h2>
+
+                      <div class="sigup flex ">
+                        <a href="./form.html" class=" p-4 rounded-md bg-green-300 shadow-md mt-7  decoration-none hover:bg-white ">Signup</a>
+                        </div>
+
                       <form action="php/login.php" method="post">
                        <div class="mx-96 mt-9">                        
                         <div class="flex flex-col mt-5 mb-6"><label >Email</label><input required name="email" class="w-full h-10  mt-2  p-4 shadow-lg  border-gray-800 " type="text" placeholder="Enter email"></div>
@@ -49,4 +62,4 @@
                       </form>
             </div>   
 </body>
-</html>m
+</html>

@@ -127,8 +127,8 @@ require "../auth.php";
        if ($connect) {
            echo "" ;
        }
-
-       $query = mysqli_query($connect, "SELECT * FROM products") or die("Error".mysqli_error());?>
+        $email = $_SESSION['email'];
+       $query = mysqli_query($connect, "SELECT * FROM products WHERE user_register = '$email' ") or die("Error".mysqli_error());?>
 
 
     <table class="mt-10 ">
@@ -155,8 +155,8 @@ require "../auth.php";
             
                 <div class="flex gap-3">
                 
-                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=prodEdit.php?userid=".$row['prod_id']  ."> Update</a> "?> </h4></div>
-                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?userid=".$row['prod_id']  ."> Delete </a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-green-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=prodEdit.php?prodid=".$row['prod_id']  ."> Update</a> "?> </h4></div>
+                    <div class="h-12 w-18 shadow-md bg-red-300 rounded-md "><h4 class="pt-3 px-2" ><?php echo "<a href=delete.php?prodid=".$row['prod_id']  ."> Delete </a> "?> </h4></div>
                 </div>
             </td>
         </tr>

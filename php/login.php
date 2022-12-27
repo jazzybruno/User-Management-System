@@ -28,7 +28,7 @@ $connect = mysqli_connect($DB_server,$DB_user_name,$DB_user_password,$DB_name);
         $_SESSION['firstName'] = $data['firstName'];
          $_SESSION['lastName'] = $data['lastName'];
 
-         header("Location: index.php");
+         header("Location: ./product/index.php");
       }
 ?>
 
